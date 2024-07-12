@@ -24,10 +24,11 @@ module.exports = {
     extend: {
       colors: {
         border: "hsl(var(--border))",
+        // border: "var(--border)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        // background: "hsl(var(--background))",
-        background: "var(--background)",
+        background: "hsl(var(--background))",
+        // background: "var(--background)",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -55,9 +56,9 @@ module.exports = {
         },
         card: {
           DEFAULT: "hsl(var(--card))",
+          // DEFAULT: "var(--card)",
           foreground: "hsl(var(--card-foreground))",
         },
-        "background-custom": "#0E0E0E",
       },
       borderRadius: {
         lg: "var(--radius)",

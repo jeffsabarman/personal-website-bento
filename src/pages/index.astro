@@ -2,6 +2,13 @@
 import "@/styles/globals.css";
 import { Button } from "@/components/ui/button";
 import Profile from "@/components/Profile.astro";
+import CardContainer from "@/components/shared/CardContainer.astro";
+import ExperienceYears from "@/components/ExperienceYears.astro";
+import NumberOfProjects from "@/components/NumberOfProjects.astro";
+import TechStack from "@/components/TechStack.astro";
+import Projects from "@/components/Projects.astro";
+import Experiences from "@/components/Experiences.astro";
+import Socials from "@/components/Socials.astro";
 ---
 
 <html lang="en">
@@ -17,8 +24,42 @@ import Profile from "@/components/Profile.astro";
     <title>Astro</title>
   </head>
   <body class="bg-background">
-    <h1 class="text-red-600">Astro</h1>
-    <Button>Hello World</Button>
-    <Profile />
+    <div class="grid grid-cols-6 grid-rows-8 gap-4 p-4 h-screen">
+      <div class="row-span-2">
+        <CardContainer>
+          <ExperienceYears />
+        </CardContainer>
+      </div>
+      <div class="row-span-2">
+        <CardContainer>
+          <NumberOfProjects />
+        </CardContainer>
+      </div>
+      <div class="col-span-2 row-span-3 col-start-1 row-start-3">
+        <CardContainer>
+          <Profile />
+        </CardContainer>
+      </div>
+      <div class="col-span-2 row-span-3 col-start-1 row-start-6">
+        <CardContainer>
+          <TechStack />
+        </CardContainer>
+      </div>
+      <div class="col-span-4 row-span-4 col-start-3 row-start-1">
+        <CardContainer>
+          <Projects />
+        </CardContainer>
+      </div>
+      <div class="col-span-3 row-span-4 col-start-3 row-start-5">
+        <CardContainer>
+          <Experiences />
+        </CardContainer>
+      </div>
+      <div class="row-span-4 col-start-6 row-start-5">
+        <CardContainer>
+          <Socials />
+        </CardContainer>
+      </div>
+    </div>
   </body>
 </html>
