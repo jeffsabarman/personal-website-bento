@@ -1,7 +1,12 @@
 ---
-
+import StyledNumber from "./shared/StyledNumber.astro";
+import StyledPill from "./shared/StyledPill.astro";
+import { FlaskConical } from "lucide-react";
 ---
 
-<div>
-  <p class="text-white">3 years experience</p>
+<div class="flex justify-center items-center h-full">
+  <div class="flex flex-col space-y-4 w-full">
+    <StyledNumber>3</StyledNumber>
+    <StyledPill label="Years of Experience" Icon={FlaskConical} />
+  </div>
 </div>

@@ -1,7 +1,14 @@
 ---
-
+import TitleCard from "./shared/TitleCard.astro";
+import { BriefcaseBusiness } from "lucide-react";
 ---
 
-<div>
-  <p class="text-white">professional experience</p>
+<div class="flex flex-col">
+  <div>
+    <TitleCard
+      Icon={BriefcaseBusiness}
+      title="Professional Experience"
+      subtitle="Career Highlights and Key Roles"
+    />
+  </div>
 </div>

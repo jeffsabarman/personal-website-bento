@@ -1,7 +1,14 @@
 ---
-
+import TitleCard from "./shared/TitleCard.astro";
+import { MessagesSquare } from "lucide-react";
 ---
 
-<div>
-  <p class="text-white">Socials</p>
+<div class="flex flex-col">
+  <div>
+    <TitleCard
+      Icon={MessagesSquare}
+      title="Socials"
+      subtitle="Connect with Me"
+    />
+  </div>
 </div>

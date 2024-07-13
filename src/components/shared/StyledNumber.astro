@@ -1,0 +1,23 @@
+---
+interface Props {
+  isHidePlus?: boolean;
+}
+const { isHidePlus } = Astro.props;
+---
+
+<div class="flex justify-center space-x-1">
+  <p
+    class="text-[6rem] leading-none font-medium bg-gradient-to-t from-[#505050] to-[#C6C6C6] bg-clip-text text-transparent"
+  >
+    <slot />
+  </p>
+  {
+    isHidePlus ? null : (
+      <div class="flex items-center">
+        <p class="text-[3rem] leading-none font-medium bg-gradient-to-t from-[#5C5049] to-[#FF7F3E] bg-clip-text text-transparent">
+          +
+        </p>
+      </div>
+    )
+  }
+</div>

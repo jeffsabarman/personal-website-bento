@@ -1,0 +1,21 @@
+---
+import type { LucideProps } from "lucide-react";
+
+interface Props {
+  label: string;
+  Icon: React.ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
+  >;
+}
+
+const { label, Icon } = Astro.props;
+---
+
+<div class="bg-[#282829] rounded-full py-2 px-6 flex justify-center space-x-2">
+  <div class="flex items-center">
+    <Icon color="hsl(var(--primary))" size={18} />
+  </div>
+  <div>
+    <p class="text-sm">{label}</p>
+  </div>
+</div>

@@ -1,7 +1,12 @@
 ---
-
+import StyledNumber from "./shared/StyledNumber.astro";
+import StyledPill from "./shared/StyledPill.astro";
+import { PanelsTopLeft } from "lucide-react";
 ---
 
-<div>
-  <p class="text-white">number of projects</p>
+<div class="flex justify-center items-center h-full">
+  <div class="flex flex-col space-y-4 w-full">
+    <StyledNumber>5</StyledNumber>
+    <StyledPill label="Projects" Icon={PanelsTopLeft} />
+  </div>
 </div>

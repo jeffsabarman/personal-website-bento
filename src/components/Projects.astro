@@ -1,7 +1,14 @@
 ---
-
+import TitleCard from "./shared/TitleCard.astro";
+import { PanelsTopLeft } from "lucide-react";
 ---
 
-<div>
-  <p class="text-white">projects</p>
+<div class="flex flex-col">
+  <div>
+    <TitleCard
+      Icon={PanelsTopLeft}
+      title="Featured Projects"
+      subtitle="Real-World and Showcase Projects"
+    />
+  </div>
 </div>
