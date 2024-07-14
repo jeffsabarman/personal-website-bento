@@ -1,0 +1,22 @@
+---
+import type { IconType } from "@/utils/helper";
+import { ChevronRight } from "lucide-react";
+
+interface Props {
+  link: string;
+  label: string;
+  icon?: IconType;
+}
+const { link, label, icon } = Astro.props;
+---
+
+<a href={link} target="_blank">
+  <div class="rounded-sm bg-[#2E2D2D] hover:bg-primary p-4">
+    <div class="flex space-x-2">
+      <p class="grow">{label}</p>
+      <div class="flex items-center">
+        <ChevronRight color="white" size={20} />
+      </div>
+    </div>
+  </div>
+</a>

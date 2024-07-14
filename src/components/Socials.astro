@@ -1,9 +1,40 @@
 ---
+import type { IconType } from "@/utils/helper";
 import TitleCard from "./shared/TitleCard.astro";
-import { MessagesSquare } from "lucide-react";
+import {
+  MessagesSquare,
+  Mail,
+  Github,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
+import { Button } from "./ui/button";
+
+const socials: { label: string; link: string; icon: IconType }[] = [
+  {
+    icon: Mail,
+    label: "Let's Talk",
+    link: "",
+  },
+  {
+    icon: Github,
+    label: "jeffsabarman",
+    link: "",
+  },
+  {
+    icon: Linkedin,
+    label: "jeffrey-sabarman",
+    link: "",
+  },
+  // {
+  //   icon: Instagram,
+  //   label: "jeffsabarman",
+  //   link: "",
+  // },
+];
 ---
 
-<div class="flex flex-col">
+<div class="flex flex-col h-full justify-between">
   <div>
     <TitleCard
       Icon={MessagesSquare}
@@ -11,4 +42,13 @@ import { MessagesSquare } from "lucide-react";
       subtitle="Connect with Me"
     />
   </div>
+  {
+    socials?.map((social) => (
+      <div>
+        <a href={social?.link} target="_blank">
+          {social?.label}
+        </a>
+      </div>
+    ))
+  }
 </div>

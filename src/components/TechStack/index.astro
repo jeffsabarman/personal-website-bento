@@ -1,0 +1,118 @@
+---
+import { Layers } from "lucide-react";
+import TitleCard from "../shared/TitleCard.astro";
+import ItemTechStack from "./ItemTechStack.astro";
+
+type DataStacksType = { link: string; label: string }[];
+
+const mainStacks: DataStacksType = [
+  {
+    label: "TypeScript",
+    link: "",
+  },
+  // {
+  //   label: "Node.js",
+  //   link: "",
+  // },
+  // {
+  //   label: "Astro",
+  //   link: "",
+  // },
+  {
+    label: "Next.js",
+    link: "",
+  },
+  {
+    label: "JavaScript (ES6+)",
+    link: "",
+  },
+  {
+    label: "Material UI",
+    link: "",
+  },
+  {
+    label: "Python",
+    link: "",
+  },
+  {
+    label: "React",
+    link: "",
+  },
+  // {
+  //   label: "Tailwind CSS",
+  //   link: "",
+  // },
+];
+
+const additionalStacks: DataStacksType = [
+  {
+    label: "Apollo GraphQL",
+    link: "",
+  },
+  {
+    label: "Tailwind CSS",
+    link: "",
+  },
+  {
+    label: "Sanity (CMS)",
+    link: "",
+  },
+  {
+    label: "Astro",
+    link: "",
+  },
+  // {
+  //   label: "Node.js",
+  //   link: "",
+  // },
+];
+---
+
+<div class="flex flex-col justify-between h-full">
+  <div>
+    <TitleCard Icon={Layers} title="Tech Stack" subtitle="Daily Technologies" />
+  </div>
+  <div class="grid grid-cols-2 gap-y-6 gap-x-4">
+    {
+      mainStacks?.map((mainStack) => (
+        <div class="grow">
+          <ItemTechStack label={mainStack?.label} link={mainStack.link} />
+        </div>
+      ))
+    }
+  </div>
+  <div class="flex space-x-2">
+    <div>
+      <p class="text-gray-400">Additional:</p>
+    </div>
+    <div class="grow">
+      <div class="flex flex-wrap gap-1">
+        {
+          additionalStacks?.map((additionalStack, idx) => (
+            <div class="flex">
+              <a href={additionalStack?.link} target="_blank">
+                <span class="link-underline">{additionalStack?.label}</span>
+              </a>
+              {idx !== additionalStacks?.length - 1 ? <span>,</span> : null}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .link-underline {
+    border-bottom-width: 0;
+    background-image: linear-gradient(transparent, transparent),
+      linear-gradient(#fff, #fff);
+    background-size: 0 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.25s ease-in-out;
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+    background-position: 0 100%;
+  }
+</style>
