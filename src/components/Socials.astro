@@ -12,9 +12,9 @@ import {
 import { Button } from "./ui/button";
 import colors from "tailwindcss/colors";
 
-const indexColorCopyright = 400;
-const colorCopyright = "gray";
-const grayCopyright = colors[colorCopyright][indexColorCopyright];
+// const indexColorCopyright = 400;
+// const colorCopyright = "gray";
+// const grayCopyright = colors[colorCopyright][indexColorCopyright];
 
 const socials: { label: string; link: string; icon: IconType }[] = [
   {
@@ -70,9 +70,9 @@ const socials: { label: string; link: string; icon: IconType }[] = [
   </div>
   <div class="flex gap-1">
     <div class="flex items-center">
-      <Copyright color={grayCopyright} size="16" />
+      <Copyright className="text-gray-400" size="16" />
     </div>
-    <p class={`text-${colorCopyright}-${indexColorCopyright}`}>
+    <p class="text-gray-400">
       {new Date().getFullYear()} jeffsabarman
     </p>
   </div>

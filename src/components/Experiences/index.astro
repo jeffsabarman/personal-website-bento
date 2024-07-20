@@ -1,0 +1,22 @@
+---
+import TitleCard from "../shared/TitleCard.astro";
+import { BriefcaseBusiness } from "lucide-react";
+import AccordionExperiences from "./AccordionExperiences";
+import TabsExperiences from "./TabsExperiences";
+---
+
+<!-- <div class="flex flex-col h-full justify-between"> -->
+<div class="flex flex-col gap-6">
+  <div>
+    <TitleCard
+      Icon={BriefcaseBusiness}
+      title="Professional Experience"
+      subtitle="Career Highlights and Key Roles"
+    />
+  </div>
+  <div>
+    <!-- <AccordionExperiences client:load /> -->
+    <TabsExperiences client:load />
+  </div>
+  <!-- <div></div> -->
+</div>
