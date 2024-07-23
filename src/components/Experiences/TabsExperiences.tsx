@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import "../css/shared.css";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ArrowUpRight } from "lucide-react";
 
 const dataWorkExperiences: {
   title: string;
@@ -16,8 +16,9 @@ const dataWorkExperiences: {
     period: "Aug 2021 - Aug 2024",
     responsibilites: [
       "Planned, designed, and built user interface systems for the company profile website using Next.js, ensuring seamless and user-friendly digital interaction.",
-      "Collaborate cross-functionally with other developers, project managers, and customer services to develop and sustain valuable features for the company's internal dashboard website",
-      "Strategically contribute to shaping business and user flows from the ground up for the company's system, resulting in streamlined processes, enhanced user experiences, and improved system efficiency.",
+      "Collaborate cross-functionally with other developers, project managers, and customer services to develop and sustain valuable features for the company's internal dashboard website.",
+      // "Strategically contribute to shaping business and user flows from the ground up for the company's system, resulting in streamlined processes, enhanced user experiences, and improved system efficiency.",
+      "Contributed to designing business and user flows for the company system, streamlining processes, enhancing user experiences, and improving efficiency.",
     ],
   },
   {
@@ -62,9 +63,12 @@ const TabsExperiences: React.FC<{}> = () => {
           <div className="mt-4 flex flex-col gap-4">
             <div className="flex justify-between gap-2">
               <a href={experience?.link} target="_blank">
-                <p className="link-underline">{experience?.institution}</p>
+                <div className="flex gap-1 items-center link-underline">
+                  <p className="">{experience?.institution}</p>
+                  <ArrowUpRight size={20} color="white" />
+                </div>
               </a>
-              <p className="font-medium">{experience?.period}</p>
+              <p className="font-medium text-gray-400">{experience?.period}</p>
             </div>
             <div className="flex flex-col gap-4">
               {experience?.responsibilites?.map((responsibility) => (
