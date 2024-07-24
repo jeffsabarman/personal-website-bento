@@ -1,5 +1,5 @@
 ---
-import { Layers } from "lucide-react";
+import { Layers, ArrowUpRight } from "lucide-react";
 import TitleCard from "../shared/TitleCard.astro";
 import ItemTechStack from "./ItemTechStack.astro";
 import "../css/shared.css";
@@ -28,7 +28,7 @@ const mainStacks: DataStacksType = [
     link: "",
   },
   {
-    label: "Material UI",
+    label: "React",
     link: "",
   },
   {
@@ -36,7 +36,7 @@ const mainStacks: DataStacksType = [
     link: "",
   },
   {
-    label: "React",
+    label: "Material UI",
     link: "",
   },
   // {
@@ -58,10 +58,10 @@ const additionalStacks: DataStacksType = [
     label: "Sanity (CMS)",
     link: "",
   },
-  {
-    label: "Astro",
-    link: "",
-  },
+  // {
+  //   label: "Astro",
+  //   link: "",
+  // },
   // {
   //   label: "Node.js",
   //   link: "",
@@ -95,8 +95,15 @@ const additionalStacks: DataStacksType = [
         {
           additionalStacks?.map((additionalStack, idx) => (
             <div class="flex">
-              <a href={additionalStack?.link} target="_blank">
-                <span class="link-underline">{additionalStack?.label}</span>
+              <a
+                href={additionalStack?.link}
+                target="_blank"
+                class="link-underline"
+              >
+                <div class="flex gap-0.5 items-center">
+                  <span>{additionalStack?.label}</span>
+                  <ArrowUpRight size={18} color="white" />
+                </div>
               </a>
               {idx !== additionalStacks?.length - 1 ? <span>,</span> : null}
             </div>

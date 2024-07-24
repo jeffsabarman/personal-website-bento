@@ -1,14 +1,45 @@
 ---
 import TitleCard from "./shared/TitleCard.astro";
 import { PanelsTopLeft } from "lucide-react";
+
+const projects = [
+  {
+    title: "Sing with Piano Collections",
+  },
+  {
+    title: "Wedding Invitation",
+  },
+  {
+    title: "Taruna Bangsa",
+  },
+  {
+    title: "Comic Book App",
+  },
+];
 ---
 
-<div class="flex flex-col">
+<div class="flex flex-col gap-4">
   <div>
     <TitleCard
       Icon={PanelsTopLeft}
       title="Featured Projects"
       subtitle="Real-World and Showcase Projects"
     />
+  </div>
+  <div class="grid grid-cols-12">
+    <div class="grid col-span-6">satu</div>
+    <div class="grid col-span-6">
+      <div class="flex flex-col gap-6">
+        <hr class="border-" />
+        {
+          projects?.map((project) => (
+            <>
+              <p>{project.title}</p>
+              <hr class="border-" />
+            </>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </div>
