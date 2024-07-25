@@ -1,6 +1,8 @@
 ---
 import TitleCard from "./shared/TitleCard.astro";
-import { PanelsTopLeft } from "lucide-react";
+import { PanelsTopLeft, ArrowRight } from "lucide-react";
+import { Image } from "astro:assets";
+import DummyImage from "../images/swpc.png";
 
 const projects = [
   {
@@ -26,15 +28,28 @@ const projects = [
       subtitle="Real-World and Showcase Projects"
     />
   </div>
-  <div class="grid grid-cols-12">
-    <div class="grid col-span-6">satu</div>
+  <div class="grid grid-cols-12 space-x-8">
     <div class="grid col-span-6">
+      <div
+        class="rounded-tr-2xl rounded-bl-2xl left-0 bottom-0 h-3/4 w-1/2 absolute"
+      >
+        <img
+          src="/src/images/swpc.png"
+          alt="SWPC Banner"
+          class="rounded-tr-2xl rounded-bl-2xl h-full w-full object-cover border-gray-button border-t border-r"
+        />
+      </div>
+    </div>
+    <div class="grid col-span-6 h-full">
       <div class="flex flex-col gap-6">
         <hr class="border-" />
         {
           projects?.map((project) => (
             <>
-              <p>{project.title}</p>
+              <button class="flex gap-2 items-center">
+                {/* <ArrowRight size={18} color="white" /> */}
+                <p>{project.title}</p>
+              </button>
               <hr class="border-" />
             </>
           ))
