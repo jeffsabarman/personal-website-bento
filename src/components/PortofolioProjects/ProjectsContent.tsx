@@ -37,8 +37,8 @@ const ProjectsContent: React.FC<ProjectsContentProps> = () => {
   });
 
   return (
-    <div className="grid grid-cols-12 space-x-8">
-      <div className="grid col-span-4 col-start-1 h-full">
+    <div className="grid grid-cols-12 gap-16">
+      <div className="grid col-span-6 col-start-1 h-full">
         <div className="flex flex-col">
           <hr className="" />
           {projects?.map((project) => (

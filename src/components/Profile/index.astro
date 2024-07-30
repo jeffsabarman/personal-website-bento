@@ -1,0 +1,53 @@
+---
+import JobTitle from "./JobTitle.astro";
+
+type KeyStatus = "partTime" | "fullTime" | "freelance" | "unavailable";
+
+const statusAvailability: {
+  [key in KeyStatus]: { text: string; isAvailable: boolean };
+} = {
+  partTime: {
+    text: "Open to Part-time",
+    isAvailable: true,
+  },
+  fullTime: {
+    text: "Open to Full-time",
+    isAvailable: true,
+  },
+  freelance: {
+    text: "Available for Freelance Job",
+    isAvailable: true,
+  },
+  unavailable: {
+    text: "Working at LoveCare",
+    isAvailable: false,
+  },
+};
+
+const currentStatus: KeyStatus = "partTime";
+---
+
+<div class="h-full flex items-center">
+  <div class="flex flex-col gap-6">
+    <div class="flex gap-6">
+      <!-- Profile Photo -->
+      <div class="w-36 h-36 bg-slate-400 rounded-xl"></div>
+      <div class="flex flex-col gap-4">
+        <div>
+          <span
+            class={`inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full ${statusAvailability[currentStatus].isAvailable ? `bg-green-900 text-green-300` : `bg-amber-900 text-amber-300`}`}
+          >
+            <span
+              class={`w-2 h-2 me-1 ${statusAvailability[currentStatus].isAvailable ? `bg-green-500 animate-pulse` : `bg-amber-500`} rounded-full`}
+            ></span>
+            {statusAvailability?.[currentStatus]?.text}
+          </span>
+        </div>
+        <div class="flex flex-col gap-2">
+          <h1 class="text-3xl font-medium">Jeffrey T. Sabarman</h1>
+          <JobTitle />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
