@@ -1,5 +1,8 @@
 ---
+import StyledPill from "../shared/StyledPill.astro";
 import JobTitle from "./JobTitle.astro";
+import { MapPin, BookA, GraduationCap, BookOpenText } from "lucide-react";
+import { Button } from "../ui/button";
 
 type KeyStatus = "partTime" | "fullTime" | "freelance" | "unavailable";
 
@@ -28,14 +31,14 @@ const currentStatus: KeyStatus = "partTime";
 ---
 
 <div class="h-full flex items-center">
-  <div class="flex flex-col gap-6">
+  <div class="flex flex-col gap-10 w-full">
     <div class="flex gap-6">
       <!-- Profile Photo -->
-      <div class="w-36 h-36 bg-slate-400 rounded-xl"></div>
+      <div class="w-32 h-32 bg-slate-400 rounded-xl"></div>
       <div class="flex flex-col gap-4">
         <div>
           <span
-            class={`inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full ${statusAvailability[currentStatus].isAvailable ? `bg-green-900 text-green-300` : `bg-amber-900 text-amber-300`}`}
+            class={`inline-flex items-center text-xs font-medium px-3 py-2 rounded-full bg-gray-button ${statusAvailability[currentStatus].isAvailable ? ` text-green-300` : `text-amber-300`}`}
           >
             <span
               class={`w-2 h-2 me-1 ${statusAvailability[currentStatus].isAvailable ? `bg-green-500 animate-pulse` : `bg-amber-500`} rounded-full`}
@@ -46,8 +49,18 @@ const currentStatus: KeyStatus = "partTime";
         <div class="flex flex-col gap-2">
           <h1 class="text-3xl font-medium">Jeffrey T. Sabarman</h1>
           <JobTitle />
+          <!-- <p class="text-xl font-light text-primary">Job Title</p> -->
         </div>
       </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4 gap-y-4">
+      <StyledPill label="Liverpool, UK" Icon={MapPin} />
+      <StyledPill label="English & Bahasa" Icon={BookA} />
+      <StyledPill label="University of Liverpool" Icon={GraduationCap} />
+      <StyledPill label="Data Science and AI" Icon={BookOpenText} />
+    </div>
+    <div class="w-full">
+      <Button className="w-full bg-gray-button py-6">View Resume</Button>
     </div>
   </div>
 </div>

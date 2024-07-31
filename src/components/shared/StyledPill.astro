@@ -6,12 +6,15 @@ interface Props {
   Icon: React.ForwardRefExoticComponent<
     Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
   >;
+  customClass?: string;
 }
 
-const { label, Icon } = Astro.props;
+const { label, Icon, customClass } = Astro.props;
 ---
 
-<div class="bg-[#282829] rounded-full py-2 px-6 flex justify-center space-x-2">
+<div
+  class={`bg-[#282829] rounded-full py-2 px-6 flex justify-center space-x-2 ${customClass}`}
+>
   <div class="flex items-center">
     <Icon color="hsl(var(--primary))" size={18} />
   </div>
