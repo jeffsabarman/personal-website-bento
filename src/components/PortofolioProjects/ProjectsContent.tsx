@@ -1,6 +1,16 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, type CSSProperties } from "react";
 import { ArrowRight } from "lucide-react";
 import { Image } from "astro:assets";
+import ImageProject from "./ImageProject";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import { Button } from "../ui/button";
 
 const projects = [
   {
@@ -25,6 +35,11 @@ const projects = [
   },
 ];
 
+const dialogStyle: CSSProperties = {
+  minWidth: "80%",
+  minHeight: "80%",
+};
+
 interface ProjectsContentProps {}
 
 const ProjectsContent: React.FC<ProjectsContentProps> = () => {
@@ -35,10 +50,14 @@ const ProjectsContent: React.FC<ProjectsContentProps> = () => {
     title: "",
     imgSrc: "",
   });
+  const [isOpenDialog, setIsOpenDialog] = useState(false);
 
   return (
     <div className="grid grid-cols-12 gap-16">
-      <div className="grid col-span-6 col-start-1 h-full">
+      <div className="grid col-span-6">
+        <ImageProject {...{ activeProject }} />
+      </div>
+      <div className="grid col-span-6 col-start-1 row-start-1 h-full">
         <div className="flex flex-col">
           <hr className="" />
           {projects?.map((project) => (
@@ -58,7 +77,12 @@ const ProjectsContent: React.FC<ProjectsContentProps> = () => {
                 });
               }}
             >
-              <button className="flex gap-6 py-6">
+              <button
+                className="flex gap-6 py-6"
+                onClick={() => {
+                  setIsOpenDialog(true);
+                }}
+              >
                 <div className="grow flex gap-2 items-center">
                   {activeProject?.title === project?.title ? (
                     <ArrowRight size={18} color="white" />
@@ -72,22 +96,22 @@ const ProjectsContent: React.FC<ProjectsContentProps> = () => {
           ))}
         </div>
       </div>
-      <div className="grid col-span-7">
-        <div className="right-0 bottom-0 h-3/4 w-1/2 absolute">
-          {/* <img
-              src="/src/images/swpc.png"
-              alt="SWPC Banner"
-              className="rounded-tl-2xl rounded-br-2xl h-full w-full object-cover border-gray-button border-t border-l"
-            />  */}
-          {activeProject?.imgSrc ? (
-            <img
-              src={activeProject?.imgSrc}
-              alt={`${activeProject?.imgSrc} Thumbnail`}
-              className="rounded-tl-2xl rounded-br-2xl h-full w-full object-cover border-gray-button border-t border-l"
-            />
-          ) : null}
-        </div>
-      </div>
+      <Dialog
+        open={isOpenDialog}
+        onOpenChange={(open) => {
+          setIsOpenDialog(open);
+        }}
+      >
+        <DialogContent style={dialogStyle}>
+          <DialogHeader>
+            <DialogTitle>Are you absolutely sure?</DialogTitle>
+            <DialogDescription>
+              This action cannot be undone. This will permanently delete your
+              account and remove your data from our servers.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
